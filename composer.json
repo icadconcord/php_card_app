@@ -2,6 +2,7 @@
     "name": "icadpay/checkout",
     "description": "Checkout API for third-party applications",
     "type": "library",
+    "license": "mit",
     "autoload": {
         "psr-4": {
             "Icadpay\\Checkout\\": "src/"
