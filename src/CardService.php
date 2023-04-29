@@ -22,7 +22,7 @@ class CardService
     private $curl;
     // private TokenDto $tokenRes;
     private $testUrl = "https://icad-staging.icadpay.com/";
-    private $prodUrl = "https://icad-staging.icadpay.com/";
+    private $prodUrl = "https://gateway.icadpay.com/";
     private $baseUrl = "https://icad-staging.icadpay.com/";
     private $reqUrl;
 
@@ -31,6 +31,9 @@ class CardService
         $this->curl = curl_init();
         $this->merchantId = $merchantId;
         $this->merchantKey = $merchantKey;
+
+        $envCheck = explode("_", $merchantId, 2);
+        $this->baseUrl = $envCheck[0] == "test" ? $this->testUrl : $this->prodUrl;
 
         // echo "initializing...";
         $this->authToken = $this->GetAuthToken($merchantId, $merchantKey);
