@@ -6,7 +6,8 @@
     "autoload": {
         "psr-4": {
             "Icadpay\\Checkout\\": "src/"
-        }
+        },
+        "files": ["src/CardService.php"]
     },
     "authors": [
         {
