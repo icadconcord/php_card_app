@@ -8,11 +8,12 @@
             "Icadpay\\Checkout\\": "src/"
         },
         "files": [
-            "src/CardService.php", 
             "src/CardDto.php", 
             "src/PaymentDto.php", 
+            "src/CardService.php", 
             "src/RequestOtpDto.php",
-            "src/PaymentReqDto.php"
+            "src/PaymentReqDto.php",
+            "src/AuthorizeTransDto.php"
         ]
     },
     "authors": [

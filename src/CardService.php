@@ -1,6 +1,9 @@
 <?php
 namespace icadpay\checkout;
 
+include_once __DIR__ . '/Crypt/RSA.php';
+include_once __DIR__ . '/Math/BigInteger.php';
+
 use icadpay\checkout\Crypt\Crypt_RSA;
 use icadpay\checkout\Math\Math_BigInteger;
 

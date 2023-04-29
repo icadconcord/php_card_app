@@ -1,6 +1,12 @@
 <?php
 namespace icadpay\checkout\Crypt;
 
+include_once __DIR__ . '/../Math/BigInteger.php';
+include_once __DIR__ . '/Hash.php';
+
+use icadpay\checkout\Math\Math_BigInteger;
+use icadpay\checkout\Crypt\Crypt_Hash;
+
 /**
  * Pure-PHP PKCS#1 (v2.1) compliant implementation of RSA.
  *
