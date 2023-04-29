@@ -7,7 +7,12 @@
         "psr-4": {
             "Icadpay\\Checkout\\": "src/"
         },
-        "files": ["src/CardService.php"]
+        "files": [
+            "src/CardService.php", 
+            "src/CardDto.php", 
+            "src/PaymentDto.php", 
+            "src/RequestOtpDto.php"
+        ]
     },
     "authors": [
         {
