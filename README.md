@@ -21,14 +21,14 @@
 ### $paymentItem->card = $cardItem;
 #
 ## $payReq = $initService->ProcessCard($paymentItem);
-### //$payRes = json_decode($payReq);
+### $payRes = json_decode($payReq);
 ### //echo $payReq;
 #
 #
 ## Authorize transaction
 ### $authTr = new AuthorizeTransDto();
 ### $authTr->amount = 100;
-### $authTr->paymentId = $dsj->paymentId;
+### $authTr->paymentId = $payReq->paymentId;
 ### $authTr->otp = "123456";
 ## $authReq $initService->AuthorizeTransaction($authTr);
 #
