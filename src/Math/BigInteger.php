@@ -1,5 +1,6 @@
 <?php
 
+namespace icadpay\checkout\Math;
 /**
  * Pure-PHP arbitrary precision integer arithmetic library.
  *

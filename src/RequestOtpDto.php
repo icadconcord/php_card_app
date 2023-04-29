@@ -1,4 +1,5 @@
 <?php
+namespace icadpay\checkout;
 
 class RequestOtpDto 
 {

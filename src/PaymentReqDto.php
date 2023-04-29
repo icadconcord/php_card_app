@@ -1,5 +1,6 @@
 <?php
 
+namespace icadpay\checkout;
 
 class PaymentReqDto
 {

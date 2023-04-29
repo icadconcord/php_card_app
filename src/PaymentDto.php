@@ -1,6 +1,6 @@
 <?php
 
-include_once 'CardDto.php';
+namespace icadpay\checkout;
 
 class PaymentDto
 {

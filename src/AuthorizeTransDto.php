@@ -1,5 +1,7 @@
 <?php
 
+namespace icadpay\checkout;
+
 class AuthorizeTransDto 
 {
     public $paymentId;

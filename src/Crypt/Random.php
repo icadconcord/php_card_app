@@ -1,4 +1,5 @@
 <?php
+namespace icadpay\checkout\Crypt;
 
 /**
  * Random Number Generator
