@@ -4,8 +4,8 @@
 ## Instantiate Service class
 
 ### $config = new IcadpayConfig();
-### $config->merchantId = "test_YzA1MmNmYzE0OTc1Y2QyM2ViNWUwNTIxOGMzZjA2MjI5N2M4ZDU3YmY5ZDg1ZmU1OWIwNWE1NDU0YjkzYTZkOQ";
-### $config->merchantKey = "test_71e5bd993221793ca5ab3c6715a874c689c4e36f568ad997adae22fc3f127329";
+### $config->merchantId = "test_pub_key";
+### $config->merchantKey = "test_priv_key";
 ### $config->publicModulus = " ";
 ### $config->publicExponent = " ";
 ####
