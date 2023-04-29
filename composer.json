@@ -11,7 +11,8 @@
             "src/CardService.php", 
             "src/CardDto.php", 
             "src/PaymentDto.php", 
-            "src/RequestOtpDto.php"
+            "src/RequestOtpDto.php",
+            "src/PaymentReqDto.php"
         ]
     },
     "authors": [
