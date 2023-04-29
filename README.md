@@ -2,8 +2,7 @@
 #
 #
 ## Instantiate Service class
-# $initService = new CardService("pub_key", 
-#                                "secrete_key");
+## $initService = new CardService("pub_key", "secrete_key");
 #
 #
 #
@@ -16,7 +15,7 @@
 #
 ### $paymentItem = new PaymentDto();
 ### $paymentItem->amount = 100;
-# $paymentItem->currency = "NGN";
+### $paymentItem->currency = "NGN";
 ### $paymentItem->customerId = "jjj@us.cc";
 ### $paymentItem->transactionRef = "iiwiwwmw3994";
 ### $paymentItem->card = $cardItem;
@@ -31,7 +30,7 @@
 ### $authTr->amount = 100;
 ### $authTr->paymentId = $dsj->paymentId;
 ### $authTr->otp = "123456";
-### $authReq $initService->AuthorizeTransaction($authTr);
+## $authReq $initService->AuthorizeTransaction($authTr);
 #
 #
 #
