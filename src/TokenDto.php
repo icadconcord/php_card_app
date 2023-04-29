@@ -1,7 +1,7 @@
 <?php
 namespace icadpay\checkout;
 
-class Token 
+class TokenDto
 {
     public $token;
     public $isActive;

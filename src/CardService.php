@@ -1,15 +1,12 @@
 <?php
 namespace icadpay\checkout;
 
-// include_once 'HTTP/Request2.php';
-include_once 'Constants.php';
-// include_once 'PaymentDto.php';
-include_once 'PaymentReqDto.php';
-// include_once 'Token.php';
-// include_once 'AuthorizeTransDto.php';
-// include_once 'RequestOtpDto.php';
-include_once __DIR__ . '/Crypt/RSA.php';
-include_once __DIR__ . '/Math/BigInteger.php';
+use icadpay\checkout\Crypt\Crypt_RSA;
+use icadpay\checkout\Math\Math_BigInteger;
+use icadpay\checkout\Constants;
+
+use icadpay\checkout\PaymentReqDto;
+use icadpay\checkout\TokenDto;
 
 
 
@@ -21,7 +18,7 @@ class CardService
     private $publicModulus = Constants::PUBLICKEY_MODULUS;
     private $publicExponent = Constants::PUBLICKEY_EXPONENT;
     private $curl;
-    // private Token $tokenRes;
+    // private TokenDto $tokenRes;
     private $testUrl = "https://icad-staging.icadpay.com/";
     private $prodUrl = "https://icad-staging.icadpay.com/";
     private $baseUrl = "https://icad-staging.icadpay.com/";
