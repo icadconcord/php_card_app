@@ -17,26 +17,29 @@ class CardService
     private $merchantId;
     private $merchantKey;
     private $authToken;
-    private $publicModulus = "a556031686505e1c534b7b9632a4ae892a8bd2452f02f70229527f3726364eb68eb6677571369177c2befdd4b40488d71a1d21a24dc41349aa71c0c7713f56b114a867bad3983850287997d1074f0fba7fbc22796bcbcf5bd63c7933edda1b2dd5ab52f98806c64dfaf3b2fd2154ec883b693c46fde5d091973b6a47f8179b11cd5042016378d582456451cfb864da66c812151e700103c62c5f9c0e8bf6d2aabdde2b80c360f6635b513d28d64dac947cd10aa80827fe4ac4dc78208389d3281176dee53c97c4723c3f4126e06ee5824915e22ff4e7ff572784ee57ae543bcd366fb16401eec8d8d184c2a4fe640db47b659f80348e23acd8575700334ed84d";
-    private $publicExponent = "010001";
+    private $publicModulus;
+    private $publicExponent;
     private $curl;
     // private TokenDto $tokenRes;
     private $testUrl = "https://icad-staging.icadpay.com/";
     private $prodUrl = "https://gateway.icadpay.com/";
-    private $baseUrl = "https://icad-staging.icadpay.com/";
+    // private $baseUrl = "https://icad-staging.icadpay.com/";
+    private $baseUrl;
     private $reqUrl;
 
-    public function __construct($merchantId, $merchantKey)
+    public function __construct(IcadpayConfig $config)
     {
         $this->curl = curl_init();
-        $this->merchantId = $merchantId;
-        $this->merchantKey = $merchantKey;
+        $this->merchantId = $config->merchantId;
+        $this->merchantKey = $config->merchantKey;
+        $this->publicExponent = $config->publicExponent;
+        $this->publicModulus = $config->publicModulus;
 
-        $envCheck = explode("_", $merchantId, 2);
+        $envCheck = explode("_", $config->merchantId, 2);
         $this->baseUrl = $envCheck[0] == "test" ? $this->testUrl : $this->prodUrl;
 
         // echo "initializing...";
-        $this->authToken = $this->GetAuthToken($merchantId, $merchantKey);
+        $this->authToken = $this->GetAuthToken($config->merchantId, $config->merchantKey);
         
       // echo $this->authToken;
       // echo "<br>";
@@ -72,15 +75,13 @@ class CardService
       return $this->RequestHandler(json_encode($requestOtpDto));
     }
     
-
-
     // public function VerifyTransaction(AuthorizeTransDto $authTrans)
     // {
     //   $this->reqUrl = $this->baseUrl . "submitotp";
     //   return $this->RequestHandler(json_encode($authTrans));
     // }
 
-    public function GetAuthToken($merchantId, $merchantKey)
+    private function GetAuthToken($merchantId, $merchantKey)
     {
       curl_setopt_array($this->curl, array(
         CURLOPT_URL => $this->baseUrl.'getToken',
@@ -107,7 +108,7 @@ class CardService
       return $tokenRes->token;
     }
 
-    public function getEncryptedCard(CardDto $card)
+    private function getEncryptedCard(CardDto $card)
     {
 
         $cardData = json_encode($card);
@@ -127,9 +128,7 @@ class CardService
         return $encData;
     }
 
-    
-
-    public function RequestHandler($request)
+    private function RequestHandler($request)
     {
       // echo $request;
       // echo "<br>";

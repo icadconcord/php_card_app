@@ -11,6 +11,7 @@
             "src/CardDto.php", 
             "src/PaymentDto.php", 
             "src/CardService.php", 
+            "src/IcadpayConfig.php",
             "src/RequestOtpDto.php",
             "src/PaymentReqDto.php",
             "src/AuthorizeTransDto.php"
