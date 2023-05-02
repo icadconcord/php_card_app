@@ -2,6 +2,9 @@
 
 namespace icadpay\checkout;
 
+use icadpay\checkout\CardDto;
+
+
 class PaymentDto
 {
     public $amount;
@@ -9,6 +12,4 @@ class PaymentDto
     public $customerId;
     public $transactionRef;
     public CardDto $card;
-
-    
 }
