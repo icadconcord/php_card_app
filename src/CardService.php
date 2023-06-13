@@ -27,6 +27,13 @@ class CardService
     private $baseUrl;
     private $reqUrl;
 
+    
+    public function __construct()
+    {
+        $this->curl = curl_init();
+
+    }
+
     public function __construct(IcadpayConfig $config)
     {
         $this->curl = curl_init();
@@ -38,12 +45,35 @@ class CardService
         $envCheck = explode("_", $config->merchantId, 2);
         $this->baseUrl = $envCheck[0] == "test" ? $this->testUrl : $this->prodUrl;
 
-        // echo "initializing...";
-        $this->authToken = $this->GetAuthToken($config->merchantId, $config->merchantKey);
         
       // echo $this->authToken;
       // echo "<br>";
 
+      
+        // echo "initializing...";
+        $this->authToken = $this->GetAuthToken($config->merchantId, $config->merchantKey);
+
+    }
+
+    //### $initService->Authenticate() // for re authentication every 10mins after authentica
+    public function Authenticate()
+    {
+      // // $this->curl = curl_init();
+      // $this->merchantId = $config->merchantId;
+      // $this->merchantKey = $config->merchantKey;
+      // $this->publicExponent = $config->publicExponent;
+      // $this->publicModulus = $config->publicModulus;
+
+      $envCheck = explode("_", $this->merchantId, 2);
+      $this->baseUrl = $envCheck[0] == "test" ? $this->testUrl : $this->prodUrl;
+
+      
+    // echo $this->authToken;
+    // echo "<br>";
+
+    
+      // echo "initializing...";
+      $this->authToken = $this->GetAuthToken($this->merchantId, $this->merchantKey);
     }
 
     public function ProcessCard(PaymentDto $pay)
